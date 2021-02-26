@@ -14,8 +14,13 @@ export async function main(event) {
   };
   const results = await dynamoDb.get(params).promise();
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(results.Item),
-  };
+  return results.Item
+    ? {
+      statusCode: 200,
+      body: JSON.stringify(results.Item),
+    }
+    : {
+      statusCode: 404,
+      body: JSON.stringify({ error: true }),
+    };
 }
