@@ -1,0 +1,6 @@
+{
+  "name": "sst-crud-api-dynamodb",
+  "stage": "dev",
+  "region": "eu-west-2",
+  "lint": true
+}
